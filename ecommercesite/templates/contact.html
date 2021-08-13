@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block title %} contact {% endblock %}
+{% block content %}
+
+
+    <!-- slider Area Start-->
+    <div class="slider-area ">
+        <!-- Mobile Menu -->
+        <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>Contact Us</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+    {% if message_name %}
+        <center><h2>Thanks {{ message_name }}!</h2>
+        <p>We received your email and will respond shortly...</p>
+        </center><br><br><br>
+    {% else %}
+    
+    <!-- ================ contact section start ================= -->
+    <section class="contact-section">
+            <div class="container">
+                <div class="d-none d-sm-block mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12392.869660418231!2d85.3464413095509!3d27.641063878586266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb174b042f6c35%3A0x14977ff150c55056!2sSiddhipur%20Drinking%20Water%20Supply%20Plant!5e0!3m2!1sen!2snp!4v1626421840164!5m2!1sen!2snp" width="1140" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </section>
+                
+    
+                <section>
+                <div class="container">
+                <div class="row">
+                        <form action="{% url 'contact' %}" method="post">
+                            {% csrf_token %}
+                            <h2 class="contact-title">Get In Touch</h2>
+                            <div class="col-sm-12">
+                                <label for="exampleFormControlInput1" class="form-label"></label>
+                                <input type="text" name="message-name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Name">
+                              </div>
+                            <div class="col-sm-12">
+                                <label for="exampleFormControlInput1" class="form-label"></label>
+                                <input type="email" name="message-email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Email">
+                              </div>
+                              <div class="col-12">
+                                <label for="exampleFormControlTextarea1" class="form-label"></label>
+                                <textarea name="message" class="form-control" id="exampleFormControlTextarea1" cols="88" rows="9" placeholder="Message"></textarea>
+                              </div><br>
+                              <button type="submit" class="btn btn-primary">SEND</button>
+                </form>
+                    <div class="col-lg-3 offset-lg-1">
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-home"></i></span>
+                            <div class="media-body">
+                                <h3>Harisiddhi Rd, Mahalaxmi Municipality.</h3>
+                                <p>Siddhipur, Lalitpur 44700</p>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                            <div class="media-body">
+                                <h3>+977 9849123930</h3>
+                                <p>Mon to Fri 9am to 6pm</p>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-email"></i></span>
+                            <div class="media-body">
+                                <h3>support@ecommerce.com</h3>
+                                <p>Send us your query anytime!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><br><br><br>
+        {% endif %}
+    <!-- ================ contact section end ================= -->
+    
+    <!-- Gallery Start-->
+    <div class="gallery-wrapper lf-padding">
+        <div class="gallery-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="gallery-items">
+                        <img src="{%static 'ecommercesite/img/gallery/gallery1.jpg' %}" alt="">
+                    </div> 
+                    <div class="gallery-items">
+                        <img src="{%static 'ecommercesite/img/gallery/gallery2.jpg' %}" alt="">
+                    </div>
+                    <div class="gallery-items">
+                        <img src="{%static 'ecommercesite/img/gallery/gallery3.jpg' %}" alt="">
+                    </div>
+                    <div class="gallery-items">
+                        <img src="{%static 'ecommercesite/img/gallery/gallery4.jpg' %}" alt="">
+                    </div>
+                    <div class="gallery-items">
+                        <img src="{%static 'ecommercesite/img/gallery/gallery5.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery End-->
+    
+    
+    {% endblock %}

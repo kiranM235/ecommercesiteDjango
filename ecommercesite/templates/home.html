@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <main>
+        
+        <!-- slider Area Start -->
+        <div class="slider-area ">
+            <!-- Mobile Menu -->
+            <div class="slider-active">
+                <div class="single-slider slider-height" data-background="{% static 'ecommercesite/img/hero/h1_hero.jpg' %}">
+                    <div class="container">
+                        <div class="row d-flex align-items-center justify-content-between">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
+                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
+                                    <img src="{% static 'ecommercesite/img/hero/hero_man.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
+                                <div class="hero__caption">
+                                    <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
+                                    <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
+                                    <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2020!</p>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
+                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-slider slider-height" data-background="{% static 'ecommercesite/img/hero/h1_hero.jpg' %}">
+                    <div class="container">
+                        <div class="row d-flex align-items-center justify-content-between">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
+                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
+                                    <img src="{% static 'ecommercesite/img/hero/hero_man.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
+                                <div class="hero__caption">
+                                    <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
+                                    <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
+                                    <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2020!</p>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
+                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- slider Area End-->
+        <!-- Category Area Start-->
+        <section class="category-area section-padding30">
+            <div class="container-fluid">
+                <!-- Section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center mb-85">
+                            <h2>Shop by Category</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="single-category mb-30">
+                            <div class="category-img">
+                                <img src="{% static 'ecommercesite/img/categori/cat1.jpg' %}" alt="">
+                                <div class="category-caption">
+                                    <h2>Women's</h2>
+                                    <span class="best"><a href="#">Best New Deals</a></span>
+                                    <span class="collection">New Collection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-xl-4 col-lg-6">
+                        <div class="single-category mb-30">
+                            <div class="category-img text-center">
+                                <img src="{% static 'ecommercesite/img/categori/cat2.jpg' %}" alt="">
+                                <div class="category-caption">
+                                    <span class="collection">Discount!</span>
+                                    <h2>Winter Cloth</h2>
+                                   <p>New Collection</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="single-category mb-30">
+                            <div class="category-img">
+                                <img src="{% static 'ecommercesite/img/categori/cat3.jpg' %}" alt="">
+                                <div class="category-caption">
+                                    <h2>Men's Cloth</h2>
+                                    <span class="best"><a href="product_list">Best New Deals</a></span>
+                                    <span class="collection">New Collection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Category Area End-->
+        <!-- Latest Products Start -->
+        <div class="mx-3">
+            <h2>Ecommercesite Men's Summer Top Wears</h2>
+            <!--Slider 3-->
+            <div class="Owl-Carousel" id="slider3">
+                {% for tp in menzsummertopwears %}
+            <a href="{% url 'product-detail' tp.id %}" class="btn"><div class="item"><img src="{{tp.product_image.url}}" alt="" height="200px">
+                <div class="fw-bold">{{tp.title}}</div><div class="fs-5">Rs {{tp.discounted_price}} </div></div></a>
+            {% endfor %}</div>
+        </div><br>
+        <div class="mx-3">
+            <h2>Ecommercesite Men's Summer Bottom Wears</h2>
+            <!--Slider 1-->
+            <div class="Owl-Carousel" id="slider1">
+                {% for mstw in menzsummerbottomwears %}
+            <a href="{% url 'product-detail' mstw.id %}" 
+            class="btn"><div class="item"><img src="{{mstw.product_image.url}}" alt="" 
+                height="200px"><div class="fw-bold">{{mstw.title}}
+                </div><span class="fs-5">Rs {{mstw.discounted_price}} 
+                </span></div></a>
+            {% endfor %}
+        </div>
+        </div><br>
+        <div class="mx-3">
+            <h2>Ecommercesite mobile</h2>
+            <!--Slider 2-->
+            <div class="Owl-Carousel" id="slider2">
+                {% for m in mobiles %}
+            <a href="{% url 'product-detail' m.id %}" class="btn"><div class="item"><img src="{{m.product_image.url}}" alt="" height="200px">
+                <div class="fw-bold">{{m.title}}</div><div class="fs-5">Rs {{m.discounted_price}} </div></div></a>
+            {% endfor %}</div>
+        </div><br>
+        
+        <div class="mx-3">
+            <h2>Ecommercesite Laptops</h2>
+            <!--Slider 4-->
+            <div class="Owl-Carousel" id="slider4">
+                {% for l in laptops %}
+            <a href="{% url 'product-detail' l.id %}" class="btn"><div class="item"><img src="{{l.product_image.url}}" alt="" height="200px">
+                <div class="fw-bold">{{l.title}}</div><div class="fs-5">Rs {{l.discounted_price}} </div></div></a>
+            {% endfor %}</div><br>
+        </div> 
+        
+                <!--    End Product Slider-->                      
+                <!-- End Nav Card -->
+            </div>
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <img src="{% static 'ecommercesite/img/paypal.png' %}" 
+                                alt="" srcset="" class="img-fluid">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <img src="{% static 'ecommercesite/img/visa.png' %}" 
+                                alt="" srcset="" class="img-fluid">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <img src="{% static 'ecommercesite/img/master.jpg' %}" 
+                                alt="" srcset="" class="img-fluid">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <img src="{% static 'ecommercesite/img/maestro.jpg' %}" 
+                                alt="" srcset="" class="img-fluid">
+
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><br><br><br>
+        <!-- Latest Products End -->
+        <!-- Best Product Start -->
+        <div class="best-product-area lf-padding" >
+           <div class="product-wrapper bg-height" style="background-image: url('{% static 'ecommercesite/img/categori/card.png' %}')">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-end">
+                        <div class="product-man position-absolute  d-none d-lg-block">
+                            <img src="{% static 'ecommercesite/img/categori/card-man1.png' %}" alt="">
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-2 d-none d-lg-block">
+                            <div class="vertical-text">
+                                <span>Menz</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-8">
+                            <div class="best-product-caption">
+                                <h2>Find The Best Product<br> from Our Shop</h2>
+                                <p>Designers who are interested in creating state of the.</p>
+                                <a href="product_list" class="black-btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+           <!-- Shape -->
+           <div class="shape bounce-animate d-none d-md-block">
+               <img src="{% static 'ecommercesite/img/categori/card-shape.png' %}" alt="">
+           </div>
+        </div>
+        <!-- Best Product End-->
+        
+        
+        <!-- Latest Offers End -->
+        <!-- Shop Method Start-->
+        <div class="shop-method-area section-padding30">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-6">
+                        <div class="single-method mb-40">
+                            <i class="ti-package"></i>
+                            <h6>Shipping Charges</h6>
+                            <p>“We charge Rs 120.00 as a shipping charge for each order on a site-wide banner.”</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6">
+                        <div class="single-method mb-40">
+                            <i class="ti-unlock"></i>
+                            <h6>Our Services</h6>
+                            <p>Online ordering, shopping, delivery within 3 working days.</p>
+                        </div>
+                    </div> 
+                    <div class="col-xl-3 col-lg-3 col-md-6">
+                        <div class="single-method mb-40">
+                            <i class="ti-reload"></i>
+                            <h6>Secure Payment System</h6>
+                            <p>We accept Visa, Master, Maestro & PayPal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Shop Method End-->
+        <!-- Gallery Start-->
+        <div class="gallery-wrapper lf-padding">
+            <div class="gallery-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="gallery-items">
+                            <img src="{% static 'ecommercesite/img/gallery/gallery1.jpg' %}" alt="">
+                        </div> 
+                        <div class="gallery-items">
+                            <img src="{% static 'ecommercesite/img/gallery/gallery2.jpg' %}" alt="">
+                        </div>
+                        <div class="gallery-items">
+                            <img src="{% static 'ecommercesite/img/gallery/gallery3.jpg' %}" alt="">
+                        </div>
+                        <div class="gallery-items">
+                            <img src="{% static 'ecommercesite/img/gallery/gallery4.jpg' %}" alt="">
+                        </div>
+                        <div class="gallery-items">
+                            <img src="{% static 'ecommercesite/img/gallery/gallery5.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Gallery End-->
+
+    </main>
+   
+    {% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block title %}Washing Machine{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="list-group">
+                <a href="{% url 'washingmachine' %}" class="list-group-item
+                list-group-item-action" aria-current="true">All Washing Machine</a>
+                <a href="{% url 'washingmachinedata' 'LG' %}"
+                class="list-group-item list-group-item-action"
+                aria-current="true">LG</a>
+                <a href="{% url 'washingmachinedata' 'Whirlpool' %}"
+                class="list-group-item list-group-item-action">Whirlpool</a>
+                <a href="{% url 'washingmachinedata' 'below' %}"
+                class="list-group-item list-group-item-action">Below 40000</a>
+                <a href="{% url 'washingmachinedata' 'above' %}"
+                class="list-group-item list-group-item-action">Above 40000</a>
+                               
+            </div>
+        </div>
+   
+
+        <div class="col-sm-8">
+            {% for product in washingmachines %}
+            <div class="col-sm-4 text-center mb-4">
+                <a href="{% url 'product-detail' product.id %}"
+                class="btn">
+            <div class="item">
+                <img src="{{product.product_image.url}}" alt=""
+                height="300" class="">
+                <div class="fw-bold">{{product.title}}</div>
+                <div class="fw-bold">Rs {{product.discounted_price}}
+                    <small class="fw-light text-decoration-line-through">
+                       Rs {{product.selling_price}}
+                    </small>
+                </div>
+            </div>
+            </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+</div>
+
+
+{% endblock %}

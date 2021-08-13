@@ -1,0 +1,298 @@
+{% load static %} 
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{% block title %} ecommercesite {% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="{% static 'ecommercesite/site.webmanifest' %}">
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommercesite/img/favicon.ico' %}">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/bootstrap.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/owl.carousel.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/flaticon.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/slicknav.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/animate.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/magnific-popup.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/fontawesome-all.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/themify-icons.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/slick.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/nice-select.css' %}">
+            <link rel="stylesheet" href="{% static 'ecommercesite/css/style.css' %}">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   </head>
+
+   <body>
+       
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{% static 'ecommercesite/img/logo/logo.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+
+    <header>
+        <!-- Header Start -->
+       <div class="header-area">
+            <div class="main-header ">
+                <div class="header-top top-bg d-none d-lg-block">
+                   <div class="container-fluid">
+                       <div class="col-xl-12">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="header-info-left d-flex">
+                                    <div class="flag">
+                                        <img src="{% static 'ecommercesite/img/icon/nfi.png' %}" alt="">
+                                    </div>
+                                    <div class="select-this">
+                                        <form action="#">
+                                            <div class="select-itms">
+                                                <select name="select" id="select1">
+                                                    <option value="">Nepal</option>
+                                                    <option value="">India</option>
+                                                    <option value="">Pakistan</option>
+                                                    <option value="">Bangladesh</option>
+                                                    <option value="">NRs</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <ul class="contact-now">     
+                                        <li>+977 9849123930</li>
+                                    </ul>
+                                </div>
+                                <div class="header-info-right">
+                                   <ul>      {% if request.user.is_authenticated %}                                    
+                                       <li><a href="{% url 'showcart' %}">Cart</a></li>
+                                       <li><a href="{% url 'checkout' %}">Checkout</a></li>
+                                       {% else %}
+                                       <li><a href="{% url 'signup' %}">Create Account</a></li>
+                                       <li><a href="accounts/login/">Login</a></li>
+                                       {% endif %}
+                                   </ul>
+                                </div>
+                            </div>
+                       </div>
+                   </div>
+                </div>
+                 <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">                            <!-- Logo -->
+                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                                <div class="logo">
+                                  <a href="home.html"><img src="{% static 'ecommercesite/img/logo/logo1.png' %}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>                                                
+                                        <ul id="navigation">                                                                                                                                     
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="category">Categories</a>
+                                                <ul class="submenu">
+                                                    <li><a href="{% url 'fashion' %}">Fashion</a></li>
+                                                    <li><a href="{% url 'electronics' %}">Electronics</a></li>
+                                                    <li><a href="{% url 'homeappliances' %}">Home Appliances</a></li>
+                                                    <li><a href="{% url 'fitness' %}">Fitness</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="hot"><a href="{% url 'product_list' %}">Latest</a>
+                                                <ul class="submenu">
+                                                    <li><a href="{% url 'product_list' %}">Product list</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="{% url 'blog' %}">Blog</a>
+                                                <ul class="submenu">
+                                                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                                                    <li><a href="{% url 'single_blog' %}">Blog Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="{% url 'about' %}">About</a>
+                                                <li><a href="contact">Contact</a></li>
+                                            </li>{% if request.user.is_authenticated %}
+                                            <li><a href="#">{{request.user.username|capfirst}}</a>
+                                                <ul class="submenu">
+                                                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                                                    <li><a href="{% url 'orders' %}">Orders</a></li>
+                                                    <li><a href="{% url 'passwordchange' %}">Change Password</a></li>
+                                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                            
+                                            
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div> 
+                            <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
+                                <ul class="header-right f-right">
+                                    <li class="d-none d-xl-block">
+                                        <div class="form-box f-left">
+                                            <input type="text" name="Search" placeholder="Search products">
+                                            <div class="search-icon">
+                                                <i class="fas fa-search special-tag"></i>
+                                            </div>
+                                        </div>
+                                     </li>
+                                        <div class="shopping-cart">
+                                            <a href="{% url 'showcart' %}"><i class='fas fa-shopping-cart'><span class="badge bg-danger">{{totalitem}}</span></i></a>
+                                        </div>
+                                    </li>
+                                   
+                                </ul>
+                            </div>{% endif %}
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+       </div>
+        <!-- Header End -->
+    </header>
+{% block content %}
+
+{% endblock %}
+{% block payment-gateway %} {% endblock %}
+<footer>
+
+    <!-- Footer Start-->
+    <div class="footer-area footer-padding">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                   <div class="single-footer-caption mb-50">
+                     <div class="single-footer-caption mb-30">
+                          <!-- logo -->
+                         <div class="footer-logo">
+                             <a href="home.html"><img src="{% static 'ecommercesite/img/logo/logo1.png' %}" alt=""></a>
+                         </div>
+                         <div class="footer-tittle">
+                             <div class="footer-pera">
+                                 <p>Ecommerce is guided by four principles: customer obsession rather than competitor focus, passion for invention, commitment to operational excellence, and long-term thinking.</p>
+                            </div>
+                         </div>
+                     </div>
+                   </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+                    <div class="single-footer-caption mb-50">
+                        <div class="footer-tittle">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="about">About</a></li>
+                                <li><a href="/"> Offers & Discounts</a></li>
+                                <li><a href="cart"> Get Coupon</a></li>
+                                <li><a href="contact">  Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+                    <div class="single-footer-caption mb-50">
+                        <div class="footer-tittle">
+                            <h4>New Products</h4>
+                            <ul>
+                                <li><a href="/">Woman Cloth</a></li>
+                                <li><a href="{% url 'fashion' %}">Fashion Accessories</a></li>
+                                <li><a href="{% url 'fashion' %}"> Man Accessories</a></li>
+                                <li><a href="/"> Rubber made Toys</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                    <div class="single-footer-caption mb-50">
+                        <div class="footer-tittle">
+                            <h4>Support</h4>
+                            <ul>
+                             <li><a href="accounts/login/">Frequently Asked Questions</a></li>
+                             <li><a href="about">Terms & Conditions</a></li>
+                             <li><a href="about">Privacy Policy</a></li>
+                             <li><a href="accounts/login/">Report a Payment Issue</a></li>
+                         </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="{% static 'ecommercesite/img/payment13.jpg' %}">
+            <!-- Footer bottom -->
+            <div class="row">
+             <div class="col-xl-7 col-lg-7 col-md-7">
+                 <div class="footer-copy-right">
+                     <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Website with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://kiranmaharjan2.com.np" target="_blank">Kiran Maharjan</a> 
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>                  
+                 </div>
+             </div>
+              <div class="col-xl-5 col-lg-5 col-md-5">
+                 <div class="footer-copy-right f-right">
+                     <!-- social -->
+                     <div class="footer-social">
+                         <a href="https://twitter.com/KiranMa41397456"><i class="fab fa-twitter"></i></a>
+                         <a href="https://www.facebook.com/Kiranmaharjanofficial"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.instagram.com/kiranmhrjn/"><i class="fab fa-instagram"></i></a>
+                         <a href="https://www.youtube.com/channel/UCHBRsBNe0ci-7e71Aw9ncJQ?view_as=subscriber"><i class="fab fa-youtube"></i></a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+        </div>
+    </div>
+    <!-- Footer End-->
+
+</footer>
+
+ <!-- JS here -->
+ 
+     <!-- All JS Custom Plugins Link Here here -->
+     <script src="{% static 'ecommercesite/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+     <!-- Jquery, Popper, Bootstrap -->
+     <script src="{% static 'ecommercesite/js/vendor/jquery-1.12.4.min.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/popper.min.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/bootstrap.min.js' %}"></script>
+     <!-- Jquery Mobile Menu -->
+     <script src="{% static 'ecommercesite/js/jquery.slicknav.min.js' %}"></script>
+
+     <!-- Jquery Slick , Owl-Carousel Plugins -->
+     <script src="{% static 'ecommercesite/js/owl.carousel.min.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/slick.min.js' %}"></script>
+
+     <!-- One Page, Animated-HeadLin -->
+     <script src="{% static 'ecommercesite/js/wow.min.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/animated.headline.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/jquery.magnific-popup.js' %}"></script>
+
+     <!-- Scrollup, nice-select, sticky -->
+     <script src="{% static 'ecommercesite/js/jquery.scrollUp.min.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/jquery.nice-select.min.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/jquery.sticky.js' %}"></script>
+     
+     <!-- contact js -->
+     <script src="{% static 'ecommercesite/js/contact.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/jquery.form.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/jquery.validate.min.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/mail-script.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/jquery.ajaxchimp.min.js' %}"></script>
+     
+     <!-- Jquery Plugins, main Jquery -->	
+     <script src="{% static 'ecommercesite/js/plugins.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/main.js' %}"></script>
+     <script src="{% static 'ecommercesite/js/myscript.js' %}"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+ </body>
+</html>
